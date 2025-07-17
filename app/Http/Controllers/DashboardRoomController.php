@@ -140,10 +140,8 @@ class DashboardRoomController extends Controller
      */
     public function destroy(Room $room)
     {
-        // Hapus semua peminjaman terkait terlebih dahulu
         $room->room()->delete();
         
-        // Baru hapus data ruangan
         $room->delete();
 
         return redirect('/dashboard/rooms')->with('deleteRoom', 'Data ruangan dan peminjamannya berhasil dihapus');
